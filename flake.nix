@@ -46,7 +46,7 @@
 
       };
 
-      nbSimLockHashes = {
+      reuronLockHashes = {
           lockFile = ./Cargo.lock;
           outputHashes = {
             "bevy-0.11.0-dev" =
@@ -81,9 +81,9 @@
 
       defaultPackage = pkgs.rustPlatform.buildRustPackage {
         src = ./.;
-        name = "nb-sim";
+        name = "reuron";
 
-        cargoLock = nbSimLockHashes;
+        cargoLock = reuronLockHashes;
 
         checkPhase = "echo 'Skipping tests'";
 
@@ -99,9 +99,9 @@
       packages.wasm-build = pkgs.rustPlatform.buildRustPackage {
 
         src = ./.;
-        name = "nb-sim-wasm";
+        name = "reuron-wasm";
 
-        cargoLock = nbSimLockHashes;
+        cargoLock = reuronLockHashes;
 
         buildPhase = ''
           echo 'Creating out dir...'

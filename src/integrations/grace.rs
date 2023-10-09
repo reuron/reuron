@@ -185,15 +185,7 @@ pub fn spawn_neuron(
                     }.into(),
         };
 
-        let membrane_serialized =
-            neuron
-            .membranes
-            .get(segment.type_ - 1)
-            .expect(
-                &format!("type ({}) should be a valid 1-based index into membranes (len {})",
-                        segment.type_,
-                        neuron.membranes.len()
-                ));
+        let membrane_serialized = neuron.membranes.get(segment.type_ - 1).expect("type should be a valid index into membranes");
         let membrane = Membrane::deserialize(membrane_serialized);
         let look_target = match entry_map.get(parent) {
             None => {
